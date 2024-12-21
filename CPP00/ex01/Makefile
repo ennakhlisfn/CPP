@@ -1,5 +1,5 @@
-NAME = phonebook
-SRC= main.cpp
+NAME = PhoneBook
+SRC= Main.cpp
 OBJ=$(SRC:.cpp=.o)
 CCPP = c++
 CPPFLAGS = -Wall -Wextra -Werror
@@ -11,7 +11,7 @@ $(NAME) : $(OBJ)
 
 %.o : %.cpp
 	$(CCPP) $(CPPFLAGS) $? -c -o $@
- 
+
 clean:
 	rm -rf $(OBJ)
 

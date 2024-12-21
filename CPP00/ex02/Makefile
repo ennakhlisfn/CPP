@@ -1,7 +1,7 @@
-NAME = MegaPhone
-SRC= MegaPhone.cpp
+NAME = Account
+SRC= tests.cpp Account.cpp
 OBJ=$(SRC:.cpp=.o)
-CCPP = c++ -std=c++98
+CCPP = c++
 CPPFLAGS = -Wall -Wextra -Werror
 
 all:$(NAME)

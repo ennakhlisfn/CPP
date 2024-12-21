@@ -79,8 +79,7 @@ class PhoneBook{
 int main() {
 	PhoneBook	phonebook;
 	
-	while (1)
-	{
+	while (1){
 		std::cout << "---------------* WELCOME TO PHONEBOOK *----------------\n\n";
 		std::cout << "Pleas Enter One Of This Three Commands:\n";
 		std::cout << "\tADD : to save a new phonebookact\n";
@@ -88,16 +87,11 @@ int main() {
 		std::cout << "\tEXIT : to quits\n\n";
 		std::cout << "command : ";
 		std::cin >> phonebook.cmd;
-		if (std::cin.fail())
-			break ;
-		if (phonebook.cmd.compare("EXIT") == 0)
-			break ;
-		else if (phonebook.cmd.compare("ADD") == 0)
-			phonebook.add();
-		else if (phonebook.cmd.compare("SEARCH") == 0)
-			phonebook.search();
-		if (std::cin.fail())
-			break ;
+		if (std::cin.fail()) break ;
+		if (phonebook.cmd.compare("EXIT") == 0) break ;
+		else if (phonebook.cmd.compare("ADD") == 0) phonebook.add();
+		else if (phonebook.cmd.compare("SEARCH") == 0) phonebook.search();
+		if (std::cin.fail()) break ;
 	}
-  	return 0;
+  return 0;
 }

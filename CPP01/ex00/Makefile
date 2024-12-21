@@ -1,7 +1,7 @@
-NAME = MegaPhone
-SRC= MegaPhone.cpp
+NAME = Zombie
+SRC= main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 OBJ=$(SRC:.cpp=.o)
-CCPP = c++ -std=c++98
+CCPP = c++ -std=c++98 #-fsanitize=address -g
 CPPFLAGS = -Wall -Wextra -Werror
 
 all:$(NAME)
