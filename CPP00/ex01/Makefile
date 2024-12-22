@@ -7,7 +7,7 @@ CPPFLAGS = -Wall -Wextra -Werror
 all:$(NAME)
 
 $(NAME) : $(OBJ)
-	$(CCPP) $(CPPFLAGS) $? -o $@
+	$(CCPP) $(CPPFLAGS) $(OBJ) -o $@
 
 %.o : %.cpp
 	$(CCPP) $(CPPFLAGS) $? -c -o $@
