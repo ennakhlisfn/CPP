@@ -1,5 +1,5 @@
-NAME = hordeZombie
-SRC= Zombie.cpp zombieHorde.cpp main.cpp
+NAME = HiThisIsBrain
+SRC= main.cpp
 OBJ=$(SRC:.cpp=.o)
 CCPP = c++ -fsanitize=address -g
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -21,4 +21,3 @@ fclean: clean
 re : fclean all
 
 .SECONDARY : $(OBJ)
-.PHONY: all clean fclean re
