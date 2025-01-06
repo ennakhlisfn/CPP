@@ -14,7 +14,6 @@ $(NAME) : $(OBJ)
 
 clean:
 	rm -f $(OBJ)
-	rm -f *.replace
 
 fclean: clean
 	rm -f $(NAME)
