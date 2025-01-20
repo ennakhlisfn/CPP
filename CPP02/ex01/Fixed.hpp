@@ -3,7 +3,6 @@
 #ifndef FIXED_H__
 #define FIXED_H__
 #include <iostream>
-#include <cmath>
 
 class Fixed
 {

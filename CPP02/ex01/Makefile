@@ -1,7 +1,7 @@
 NAME = a.out
 SRC= main.cpp Fixed.cpp
 OBJ=$(SRC:.cpp=.o)
-CCPP = c++ -fsanitize=address -g
+CCPP = c++ #-fsanitize=address -g
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all:$(NAME)
