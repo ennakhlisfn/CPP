@@ -1,13 +1,50 @@
 #include <iostream>
+#include <string>
 
 class Contact{
-	public:
+	private:
 		std::string fname;
 		std::string	lname;
 		std::string	nname;
 		std::string	phone;
 		std::string	secret;
+	public:
+		std::string	get_fname();
+		std::string	get_lname();
+		std::string	get_nname();
+
+		void	set_fname(std::string str);
+		void	set_lname(std::string str);
+		void	set_nname(std::string str);
+		void	set_phone(std::string str);
+		void	set_secret(std::string str);
 };
+
+std::string	Contact::get_fname(){
+	return fname;
+}
+std::string	Contact::get_lname(){
+	return lname;
+}
+std::string	Contact::get_nname(){
+	return nname;
+}
+
+void	Contact::set_fname(std::string str){
+	fname = str;
+}
+void	Contact::set_lname(std::string str){
+	lname = str;
+}
+void	Contact::set_nname(std::string str){
+	nname = str;
+}
+void	Contact::set_phone(std::string str){
+	phone = str;
+}
+void	Contact::set_secret(std::string str){
+	secret = str;
+}
 
 std::string	replaceTabsWithSpaces(std::string str){
 	size_t	pos = 0;
@@ -21,7 +58,7 @@ std::string	replaceTabsWithSpaces(std::string str){
 	return	str;
 }
 
-void	display_str(std::string	str)
+void	DisplayStr(std::string	str)
 {
 	int	sz;
 	std::string NewStr;
@@ -51,26 +88,37 @@ class PhoneBook{
 };
 
 void PhoneBook::add(){
+	std::string	tmp;
 	std::cout << "\n\nfirst name: ";
-	std::getline(std::cin, contacts[i].fname);
-	if (std::cin.fail() || !contacts[i].fname.length())
+	std::getline(std::cin, tmp);
+	if (std::cin.fail() || !tmp.length())
 		return ;
+	contacts[i].set_fname(tmp);
+
 	std::cout << "\nlast name: ";
-	std::getline(std::cin, contacts[i].lname);
-	if (std::cin.fail() || !contacts[i].lname.length())
+	std::getline(std::cin, tmp);
+	if (std::cin.fail() || !tmp.length())
 		return ;
+	contacts[i].set_lname(tmp);
+
 	std::cout << "\nnickname name: ";
-	std::getline(std::cin, contacts[i].nname);
-	if (std::cin.fail() || !contacts[i].nname.length())
+	std::getline(std::cin, tmp);
+	if (std::cin.fail() || !tmp.length())
 		return ;
+	contacts[i].set_nname(tmp);
+
 	std::cout << "\nphone number: ";
-	std::getline(std::cin, contacts[i].phone);
-	if (std::cin.fail() || !contacts[i].phone.length())
+	std::getline(std::cin, tmp);
+	if (std::cin.fail() || !tmp.length())
 		return ;
+	contacts[i].set_phone(tmp);
+
 	std::cout << "\ndarkest secret: ";
-	std::getline(std::cin, contacts[i].secret);
-	if (std::cin.fail() || !contacts[i].secret.length())
+	std::getline(std::cin, tmp);
+	if (std::cin.fail() || !tmp.length())
 		return ;
+	contacts[i].set_secret(tmp);
+
 	std::cout << "\n\n";
 	i++;
 	if (k < 8)
@@ -79,17 +127,40 @@ void PhoneBook::add(){
 		i = 0;
 }
 
-void	PhoneBook::search(){
+void	DisplayTable(Contact *contacts ,int start, int end){
 	std::cout << "  Index  |  First Name  |  Last Name   |  Nickname    |\n";
 	std::cout << "-------------------------------------------------------\n";
-	for (int j=0; j < k; j++)
+	for (int j=start; j < end; j++)
 	{
 		std::cout << "    " << j << "    |";
-		display_str(contacts[j].fname);
-		display_str(contacts[j].lname);
-		display_str(contacts[j].nname);
+		DisplayStr(contacts[j].get_fname());
+		DisplayStr(contacts[j].get_lname());
+		DisplayStr(contacts[j].get_nname());
 		std::cout << std::endl;
 	}
+	std::cout << "-------------------------------------------------------\n";
+}
+
+void	PhoneBook::search(){
+	int	i;
+	std::string	indexs = "01234567";
+	std::string	tmp;
+
+	std::cout << "\nINDEX: ";
+	std::getline(std::cin, tmp);
+	if (tmp.length() != 1 || indexs.find(tmp) > 7){
+		return ;
+	}
+	i = stoi(tmp);
+	if (std::cin.fail() || tmp.length() != 1 || i >= k || i < 0)
+		return ;
+	std::cout << "  Index  |  First Name  |  Last Name   |  Nickname    |\n";
+	std::cout << "-------------------------------------------------------\n";
+	std::cout << "    " << i << "    |";
+	DisplayStr(contacts[i].get_fname());
+	DisplayStr(contacts[i].get_lname());
+	DisplayStr(contacts[i].get_nname());
+	std::cout << "\n-------------------------------------------------------\n";
 	std::cout << std::endl;
 	std::cout << std::endl;
 }
